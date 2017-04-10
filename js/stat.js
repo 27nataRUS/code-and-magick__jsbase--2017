@@ -18,11 +18,7 @@ function drawText(ctx, text, positionX, positionY) {
 }
 
 function drawColumn(ctx, positionX, positionY, columnWidth, columnHeight, nickname) {
-  if (nickname === 'Вы') {
-    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-  } else {
-    ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
-  }
+  ctx.fillStyle = nickname === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'rgba(0, 0, 255, ' + Math.random() + ')';
   ctx.fillRect(positionX, positionY, columnWidth, columnHeight);
 }
 
@@ -35,6 +31,7 @@ function drawHistogram(ctx, names, times) {
   var initialY = 90;
   var columnWidth = 40;
   var columnIndent = 50;
+
   for (var i = 0; i < names.length; i++) {
     columnPositionX = initialX + i * (columnIndent + columnWidth);
     columnPositionY = initialY + (histogramHeight - times[i] * step);
